@@ -17,42 +17,68 @@
 #   - if match, add to array matches
 # Take the last value of that arrray and return it
 
+# Strategy pt. 2
+# Find a list of all the factors
+# Plug that list into a function that checks if a number is prime or not
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+
 # imports
 import numpy as np
 
 # define main
 def main():
-    n = 13195
-    primes = np.array(generatePrimes(n), dtype=np.int64)
+    n = 600851475143
+    # generatePrimes(n)
+    # primes = np.array(generatePrimes(n), dtype=np.int64)
     factors = np.array(generateFactors(n), dtype=np.int64)
-    overlap = np.array([], dtype=np.int64)
-    overlap = np.intersect1d(primes, factors)
-    print("Overlap:\n",overlap)
-    final = overlap[-1]
-    print(final)
+    print(factors)
+    # overlap = np.array([], dtype=np.int64)
+    # overlap = np.intersect1d(primes, factors)
+    # print("Overlap:\n",overlap)
+    # final = overlap[-1]
+    # print(final)
 
 
 
 # Build a list of all prime numbers below half of n
 def generatePrimes(n):
-    # Sieve of Eratosthenes - eliminate multiples of 2, 3, 4...
-    # start out with array of 1s of size n/2
-    a = np.ones((n//2), dtype=np.int16)
-    # for each index that's a multiple of m, change the value to 0
-    m = 2
-    while (m < n//2):
-        i = 2
-        while (i*m < n//2):
-            a[i*m] = 0
-            i += 1
-        m += 1
+
+    # generate list of potential primes (all numbers 2-n\\2)
+    floor = 2
+    ceiling = n//2 + 1
+    a = np.arange(floor, ceiling, 1)
+
+    # for 
+
+    print(a)
+
+
+    # # Sieve of Eratosthenes - eliminate multiples of 2, 3, 4...
+    # # start out with array of 1s of size n/2
+    # a = np.ones((n//2), dtype=np.int16)
+    # # for each index that's a multiple of m, change the value to 0
+    # m = 2
+    # while (m < n//2):
+    #     i = 2
+    #     while (i*m < n//2):
+    #         a[i*m] = 0
+    #         i += 1
+    #     m += 1
     
-    # return array of 1 value indexes (array of just primes)
-    for i in range(len(a)):
-        if a[i] == 1:
-            a[i] = i
-    a = a[a != 0]
-    return(a)
+    # # return array of 1 value indexes (array of just primes)
+    # for i in range(len(a)):
+    #     if a[i] == 1:
+    #         a[i] = i
+    # a = a[a != 0]
+    # return(a)
 
 def generateFactors(n):
     # create an array of zeros
