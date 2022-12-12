@@ -1,2 +1,2 @@
 # project-euler
-Project Euler work and solutions
+My WIP work and solutions for [Project Euler](https://projecteuler.net/), a set of math-oriented programming puzzles.
