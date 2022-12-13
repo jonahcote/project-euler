@@ -38,7 +38,7 @@ def main():
         if (accepted):
             print(n)
             found = True
-        # print out every 19 million to check program progress
+        # print out every 11 million to check program progress
         if(n % 1000000 == 0):
             print(n)
         # increase the count by 19
