@@ -1,7 +1,7 @@
 # A Pythagorean triplet is a set of three natural numbers, a < b < c, for which,
-# a2 + b2 = c2
+# a^2 + b^2 = c^2
 
-# For example, 32 + 42 = 9 + 16 = 25 = 52.
+# For example, 3^2 + 4^2 = 9 + 16 = 25 = 5^2.
 
 # There exists exactly one Pythagorean triplet for which a + b + c = 1000.
 # Find the product abc.
@@ -11,24 +11,32 @@ def main():
     # Find all a < b < c while a+b+c=1000
 
     a = 0
-    b = 1
-    c = 999
+    b = 0
+    c = 1000
 
-    for i in range(665):
-        print ("Sum",a+b+c,"\tChecking",a,b,c)
-        if (i%2==0):
-            b += 1
-        else:
-            a += 1
-        c -= 1
+    found = False
 
-        if (a**2 + b**2 == c**2):
-            print("\tFOUND:",a, b, c)
-            break
+    # Decrease c
+    while (c>0 and not found):
+        c = c - 1
+        b = 1000 - c
+        a = 0
+        while (c>b and b>a):
+            # if(True):
+            #     print("Testing",a,b,c,"\t",a**2+b**2," ",c**2)
+            print("Testing",a,b,c)
+            if(isPythagoreanTriple(a,b,c)):
+                print("Found!",a,b,c)
+                found = True
+                break
+            b = b - 1
+            a = a + 1
 
-    # Check if a^2 + b^2 = c^2
-    return True
 
-
+def isPythagoreanTriple(a, b, c):
+    if(a**2 + b**2 == c**2):
+        return True
+    else:
+        return False
 
 main()
