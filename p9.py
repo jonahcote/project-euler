@@ -21,11 +21,9 @@ def main():
         c = c - 1
         b = 1000 - c
         a = 0
-        while (c>b and b>a):
-            # if(True):
-            #     print("Testing",a,b,c,"\t",a**2+b**2," ",c**2)
-            print("Testing",a,b,c)
-            if(isPythagoreanTriple(a,b,c)):
+        while (c>333 and b>a):
+            #print("Testing",a,b,c)
+            if(c>b>a and b != 500 and isPythagoreanTriple(a,b,c)):
                 print("Found!",a,b,c)
                 found = True
                 break
